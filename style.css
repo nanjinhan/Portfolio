@@ -307,6 +307,11 @@ body.on-dark .dotnav a.active { background: #9aa0ff; }
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
+  transition: color .5s var(--ease);
+}
+/* 캐릭터 순환에 맞춰 박→진→한 순서로 하이라이트가 이동 */
+.hero-title.acrostic .initial.lit {
+  color: var(--accent);
 }
 
 .hero-sub {

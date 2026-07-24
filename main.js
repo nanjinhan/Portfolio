@@ -179,9 +179,18 @@ window.addEventListener("keydown", (e) => {
   });
   const dots = [...dotsEl.children];
 
+  // 삼행시 첫 글자(박·진·한) — 캐릭터가 바뀔 때마다 하이라이트가 순환 이동
+  const initials = [...document.querySelectorAll(".hero-title.acrostic .initial")];
+
   function show(i) {
     const prev = idx;
     idx = i;
+
+    // 박→진→한 순환 하이라이트 (캐릭터 5개 → 글자 3개 반복 매핑)
+    if (initials.length) {
+      const lit = i % initials.length;
+      initials.forEach((el, n) => el.classList.toggle("lit", n === lit));
+    }
     slides.forEach((s, n) => {
       const on = n === i;
       // 직전 활성 슬라이드는 '나가는' 모션을 주고, 나머지는 대기 상태로
