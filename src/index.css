@@ -1,0 +1,208 @@
+/* ============================================================
+   박진한 Portfolio (React) — 전역 스타일
+   코발트 오로라 톤 · 스위스 편집 · 글래스모피즘
+   ============================================================ */
+
+:root {
+  --ink: #0d1020;
+  --paper: #f4f6fb;
+  --paper-2: #eef1f8;
+  --accent: #2427ff;
+  --accent-2: #5b3df5;
+  --cyan: #00b4d8;
+  --gray: #6b7180;
+  --line: rgba(20, 24, 50, 0.1);
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-brd: rgba(255, 255, 255, 0.7);
+  --dark: #0d1020;
+  --maxw: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --serif: "Fraunces", "Pretendard Variable", serif;
+}
+
+/* 세리프 포인트 (숫자·영문 라벨에 우아함 부여) */
+.serif { font-family: var(--serif); font-weight: 400; }
+.serif-i { font-family: var(--serif); font-style: italic; font-weight: 400; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* 섹션 단위로 부드럽게 스냅 (긴 섹션에서 갇히지 않게 proximity) */
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 0;
+}
+html::-webkit-scrollbar { display: none; }
+
+/* 커스텀 커서 활성화 시 기본 커서 숨김 */
+body.has-cursor,
+body.has-cursor * { cursor: none !important; }
+
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 7px; height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 10000;
+}
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 34px; height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(36, 39, 255, 0.55);
+  background: rgba(36, 39, 255, 0.04);
+  pointer-events: none;
+  z-index: 10000;
+  backdrop-filter: blur(1px);
+}
+
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, "Segoe UI",
+    "Malgun Gothic", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+/* 미세 그레인 (고급 질감) */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { display: block; max-width: 100%; }
+
+/* ---------- 레이아웃 ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(80px, 12vh, 140px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+}
+.section-label::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+.section-label.light { color: #9aa0ff; }
+
+.h2 {
+  font-size: clamp(38px, 6.5vw, 82px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+/* ---------- 스냅 스크롤 컨테이너 ---------- */
+.snap {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+  scrollbar-width: none;
+}
+.snap::-webkit-scrollbar { display: none; }
+
+/* ---------- 글래스 카드 ---------- */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--glass-brd);
+  border-radius: 22px;
+  box-shadow: 0 10px 40px rgba(20, 24, 60, 0.08);
+}
+
+/* ---------- 태그 ---------- */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(36, 39, 255, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(36, 39, 255, 0.15);
+}
+
+/* ---------- 배지 ---------- */
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ---------- 이미지 자리표시자 ---------- */
+.ph {
+  position: relative;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.6) 0 14px,
+    rgba(230, 234, 245, 0.6) 14px 28px
+  );
+  border: 1px dashed rgba(36, 39, 255, 0.25);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 16px;
+  overflow: hidden;
+}
+
+/* ---------- 유틸 ---------- */
+.mono { font-variant-numeric: tabular-nums; }
+.center { text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
