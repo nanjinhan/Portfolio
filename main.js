@@ -201,6 +201,45 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
 });
 
+/* ---------- 7.8 연도별 타임라인 ---------- */
+(function timelineYears() {
+  const years = [...document.querySelectorAll(".tl-year")];
+  const rows = [...document.querySelectorAll(".tl-row")];
+  if (!years.length || !rows.length) return;
+
+  function showYear(y) {
+    years.forEach((b) => {
+      const on = b.dataset.year === y;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-selected", String(on));
+    });
+    rows.forEach((r) => r.classList.toggle("is-shown", r.dataset.year === y));
+  }
+
+  years.forEach((b) => {
+    b.addEventListener("click", () => showYear(b.dataset.year));
+    // 좌우 방향키로도 연도를 넘길 수 있게
+    b.addEventListener("keydown", (e) => {
+      const i = years.indexOf(b);
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+        e.preventDefault();
+        const n = years[(i + 1) % years.length];
+        n.focus();
+        showYear(n.dataset.year);
+      } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        const n = years[(i - 1 + years.length) % years.length];
+        n.focus();
+        showYear(n.dataset.year);
+      }
+    });
+  });
+
+  // 처음에는 가장 최근 연도를 펼쳐 둡니다
+  const initial = years.find((b) => b.classList.contains("is-on")) || years[years.length - 1];
+  showYear(initial.dataset.year);
+})();
+
 /* ---------- 8. 히어로 3D 캐릭터 순환 ---------- */
 (function charRotator() {
   const stage = document.getElementById("charStage");
