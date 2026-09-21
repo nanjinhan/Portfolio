@@ -44,7 +44,7 @@ const countObserver = new IntersectionObserver(
 document.querySelectorAll("[data-count]").forEach((el) => countObserver.observe(el));
 
 /* ---------- 3. 배경색 전환 (챕터/섹션별) ---------- */
-const DARK_BGS = ["#101322"];
+const DARK_BGS = ["#101322", "#0e1550"];
 const bgSections = document.querySelectorAll("[data-bg]");
 const bgObserver = new IntersectionObserver(
   (entries) => {
@@ -130,6 +130,7 @@ document.querySelectorAll(".ph").forEach((ph) => {
     const label = ph.dataset.ph || "사진";
     const img = ph.querySelector("img");
     lightboxInner.innerHTML = "";
+    lightboxInner.classList.remove("showing-cert");
     if (img) {
       const big = img.cloneNode();
       big.style.position = "static";
@@ -143,6 +144,52 @@ document.querySelectorAll(".ph").forEach((ph) => {
     document.body.style.overflow = "hidden";
   });
 });
+/* ---------- 7.5 상장 보기 ---------- */
+function openCert(el) {
+  const src = el.dataset.cert;
+  if (!src) return;
+  const caption = el.dataset.certTitle || "";
+  lightboxInner.innerHTML = "";
+
+  const fig = document.createElement("figure");
+  fig.className = "cert-view";
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = caption || "상장";
+  // 파일이 아직 없을 때도 화면이 깨지지 않게
+  img.addEventListener("error", () => {
+    fig.classList.add("cert-missing");
+    img.remove();
+    const msg = document.createElement("p");
+    msg.className = "cert-fallback";
+    msg.textContent = "상장 이미지를 준비 중입니다.";
+    fig.prepend(msg);
+  });
+  fig.appendChild(img);
+
+  if (caption) {
+    const cap = document.createElement("figcaption");
+    cap.textContent = caption;
+    fig.appendChild(cap);
+  }
+
+  lightboxInner.appendChild(fig);
+  lightboxInner.classList.add("showing-cert");
+  lightbox.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+document.querySelectorAll(".has-cert").forEach((el) => {
+  el.addEventListener("click", () => openCert(el));
+  el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openCert(el);
+    }
+  });
+});
+
 function closeLightbox() {
   lightbox.hidden = true;
   document.body.style.overflow = "";
