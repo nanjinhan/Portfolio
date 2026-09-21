@@ -332,26 +332,28 @@ body.on-dark .dotnav a.active { background: #9aa0ff; }
 /* 히어로 하단 — 지금 하고 있는 일 한 줄 */
 .hero-now {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 11px;
   margin-top: 22px;
-  padding: 12px 16px;
+  padding: 13px 18px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  /* 두 줄로 넘어가도 모양이 무너지지 않도록 알약 대신 둥근 사각형 */
+  border-radius: 14px;
   font-size: 14.5px;
+  line-height: 1.6;
   color: var(--gray);
   letter-spacing: -0.01em;
-  width: fit-content;
-  max-width: 100%;
+  max-width: 33em;
 }
 .hero-now strong { color: var(--ink); font-weight: 800; }
 .now-dot {
   flex: 0 0 auto;
   width: 8px;
   height: 8px;
+  /* 세로 가운데가 아니라 첫 줄에 맞춰 둡니다 */
+  margin-top: .52em;
   border-radius: 50%;
   background: var(--accent);
-  align-self: center;
   animation: nowPulse 2s var(--ease) infinite;
 }
 @keyframes nowPulse {
@@ -1144,7 +1146,6 @@ body.on-dark .dotnav a.active { background: #9aa0ff; }
   .proof-list li span { flex-basis: auto; }
   .proof-list li .cert-cue { margin-left: 0; }
   .spec { grid-template-columns: 1fr; }
-  .hero-now { border-radius: 14px; }
 
   .chapter { grid-template-columns: 1fr; gap: 20px; }
   .chapter-side { position: static; flex-direction: row; align-items: baseline; gap: 14px; }
