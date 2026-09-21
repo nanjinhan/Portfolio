@@ -213,7 +213,7 @@ window.addEventListener("keydown", (e) => {
       b.classList.toggle("is-on", on);
       b.setAttribute("aria-selected", String(on));
     });
-    rows.forEach((r) => r.classList.toggle("is-shown", r.dataset.year === y));
+    rows.forEach((r) => r.classList.toggle("is-hidden", r.dataset.year !== y));
   }
 
   years.forEach((b) => {

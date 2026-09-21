@@ -777,12 +777,10 @@ body.on-dark .dotnav a.active { background: #9aa0ff; }
   padding: 22px 4px;
   border-bottom: 1px solid var(--line);
 }
-/* 연도 전환 — 선택된 연도만 표시 */
-.tl-row { display: none; }
-.tl-row.is-shown {
-  display: grid;
-  animation: tlIn .5s var(--ease) both;
-}
+/* 연도 전환 — 스크립트가 선택되지 않은 연도를 숨깁니다.
+   기본값을 '보임'으로 두어, 스크립트가 늦거나 막혀도 기록이 사라지지 않게 합니다. */
+.tl-row.is-hidden { display: none; }
+.tl-row:not(.is-hidden) { animation: tlIn .45s var(--ease) both; }
 @keyframes tlIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
