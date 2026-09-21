@@ -9,3 +9,6 @@ desktop.ini
 
 # Logs / temp
 *.log
+
+# 작업용 폴더 (내가 넣어둔 원본 — 사이트에는 assets/certs 만 쓰임)
+상장넣는곳/
