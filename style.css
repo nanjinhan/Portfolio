@@ -542,10 +542,12 @@ body.on-dark .dotnav a.active { background: #9aa0ff; }
   font-size: 15.5px;
 }
 .proof-list li span {
-  flex: 0 0 120px;
+  /* '광주광역시장 표창' 처럼 긴 라벨도 한 줄에 들어가도록 */
+  flex: 0 0 134px;
   font-weight: 800;
   color: var(--accent);
   font-size: 14px;
+  line-height: 1.4;
 }
 
 /* 챕터 안의 넓은 현장 사진 */
