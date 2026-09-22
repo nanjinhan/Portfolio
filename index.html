@@ -6,7 +6,7 @@
 <title>박진한 — IT Product Planner · Portfolio 2026</title>
 <meta name="description" content="만들어서 증명하는 IT 프로덕트 기획자 박진한의 포트폴리오입니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <body data-theme="light">
 
@@ -143,7 +143,7 @@
       <span class="proof-meta">2025 AI기반창업 Jump-UP · 산학협력단장상</span>
       <span class="cert-cue">상장 보기</span>
     </article>
-    <article class="proof-card reveal delay-1 has-cert" data-cert="assets/certs/cert-bizspot-foundation.jpg" data-cert-title="특별상 — 제12회 광주광역시 공공데이터·AI 활용 창업경진대회 · 한국장학재단 이사장 (2026.07.22)" tabindex="0" role="button" aria-label="BizSpot AI 상장 보기">
+    <article class="proof-card reveal delay-1 has-cert" data-cert="assets/certs/cert-bizspot-foundation.jpg" data-cert-title="특별상 — 제12회 광주광역시 공공데이터·AI 활용 창업경진대회 · 한국장학재단 이사장 · 상금 100만 원 (2026.07.22)" tabindex="0" role="button" aria-label="BizSpot AI 상장 보기">
       <span class="badge">특별상</span>
       <h3>BizSpot AI</h3>
       <p>광주 공공데이터로 창업 입지를 분석하는 웹 서비스입니다.</p>
@@ -277,8 +277,15 @@
     <div class="real-photos reveal">
       <button class="real-toggle" aria-expanded="false"><span class="ic">+</span> 실제 서비스 화면 보기</button>
       <div class="real-grid" hidden>
-        <figure class="ph ph-real" data-ph="BizSpot AI 서비스 화면"><span>사진 자리 — 서비스 화면</span></figure>
-        <figure class="ph ph-real" data-ph="발표 · 시연 현장"><span>사진 자리 — 발표 · 시연</span></figure>
+        <figure class="ph ph-real" data-ph="BizSpot AI 첫 화면">
+          <img src="assets/photos/bizspot-hero.jpg" alt="BizSpot AI 첫 화면 — 감이 아닌 데이터로 소상공인 창업 입지를 분석합니다" loading="lazy">
+        </figure>
+        <figure class="ph ph-real" data-ph="입지 후보지 지도 분석">
+          <img src="assets/photos/bizspot-map.jpg" alt="광주 입지 후보지 지도 분석 화면과 지표별 점수" loading="lazy">
+        </figure>
+        <figure class="ph ph-real" data-ph="제12회 광주 공공데이터 창업경진대회 시상식">
+          <img src="assets/photos/bizspot-award.jpg" alt="제12회 광주 공공데이터 AI 활용 창업경진대회 시상식에서 특별상을 받는 모습" loading="lazy">
+        </figure>
       </div>
     </div>
     <blockquote class="people-piece reveal">데이터 분석의 끝을 예비 창업자의 상담 한 번으로 설계했습니다.</blockquote>
@@ -594,7 +601,7 @@
         </span>
         <span class="tl-tag">수료</span>
       </article>
-      <article class="tl-row has-cert" data-year="2026" data-cert="assets/certs/cert-bizspot-foundation.jpg" data-cert-title="특별상 — 제12회 광주광역시 공공데이터·AI 활용 창업경진대회 · 한국장학재단 이사장 (2026.07.22)" tabindex="0" role="button">
+      <article class="tl-row has-cert" data-year="2026" data-cert="assets/certs/cert-bizspot-foundation.jpg" data-cert-title="특별상 — 제12회 광주광역시 공공데이터·AI 활용 창업경진대회 · 한국장학재단 이사장 · 상금 100만 원 (2026.07.22)" tabindex="0" role="button">
         <span class="tl-date">07.22</span>
         <span class="tl-body">
           <strong>제12회 광주광역시 공공데이터·AI 활용 창업경진대회</strong>
@@ -746,11 +753,14 @@
       <div class="project-detail">
         <div class="project-cols">
           <ul>
-            <li>Kakao Map API로 자치구 · 상권 입지 정보를 시각화했습니다.</li>
-            <li>Gemini API를 연동해 분석 결과 기반 창업 상담을 구현했습니다.</li>
+            <li>자치구 · 업종을 고르면 후보지를 점수순으로 세워 지도 위에 보여 줍니다.</li>
+            <li>유동인구 · 접근성 · 업종 궁합 · 경쟁 강도 · 비용 부담을 지표로 쪼개 추천 사유까지 함께 제시합니다.</li>
+            <li>Gemini API를 연동해 분석 결과를 그대로 이어받는 AI 상담을 붙였습니다.</li>
             <li>Vercel로 웹 MVP를 배포하고 시연 환경을 구축했습니다.</li>
           </ul>
-          <div class="ph ph-s" data-ph="BizSpot 화면"><span>사진 자리 — 서비스 화면</span></div>
+          <div class="ph ph-s" data-ph="BizSpot AI 입지 분석 화면">
+            <img src="assets/photos/bizspot-map.jpg" alt="BizSpot AI 광주 입지 후보지 지도 분석 화면" loading="lazy">
+          </div>
         </div>
         <div class="tags"><span>React</span><span>Kakao Map</span><span>Gemini</span><span>Vercel</span></div>
       </div>
@@ -829,7 +839,9 @@
 
   <div class="making-grid">
     <figure class="making-item ph reveal tall" data-ph="카드뉴스"><span>카드뉴스 — 총학생회 · 기획 · 디자인 직접</span></figure>
-    <figure class="making-item ph reveal" data-ph="행사 포스터"><span>행사 포스터 — 총축제 콘텐츠</span></figure>
+    <figure class="making-item ph reveal" data-ph="BizSpot AI 화면">
+      <img src="assets/photos/bizspot-map.jpg" alt="BizSpot AI 입지 분석 화면" loading="lazy">
+    </figure>
     <figure class="making-item ph reveal" data-ph="도어락 실물"><span>스마트 도어락 — 납땜 · 케이스 제작</span></figure>
     <figure class="making-item ph reveal tall" data-ph="AI 벽화">
       <img src="assets/photos/mural-done1.jpg" alt="완성된 5.18 기념 AI 벽화" loading="lazy">
@@ -930,6 +942,6 @@
   <div class="lightbox-inner"></div>
 </div>
 
-<script src="main.js?v=13"></script>
+<script src="main.js?v=14"></script>
 </body>
 </html>
