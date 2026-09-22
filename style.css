@@ -1089,6 +1089,8 @@ body.on-dark .dotnav a.active { background: #9aa0ff; }
   max-width: 100%;
   max-height: 78vh;
   width: auto;
+  /* 세로로 긴 앱 화면(GIF)도 잘리지 않게 */
+  object-fit: contain;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
